@@ -3,7 +3,7 @@
 .hud-panel{background:linear-gradient(180deg,rgba(15,35,46,.95),rgba(10,24,33,.96));border:1px solid var(--line);box-shadow:0 0 0 1px rgba(78,140,170,.12),inset 0 0 24px rgba(59,167,204,.08);border-radius:12px}
 .topbar{display:flex;justify-content:space-between;align-items:center;padding:10px 16px;margin:8px}
 .topbar h1{margin:0;font-size:26px;letter-spacing:.03em}.subtitle{margin:3px 0 0;color:var(--muted);font-size:11px;letter-spacing:.08em}
-.top-actions{display:flex;align-items:center;gap:10px}.signal-bars{display:flex;gap:4px;padding:6px 8px;border:1px solid var(--line);border-radius:8px;background:#08161f}.signal-bars span{display:block;width:14px;height:8px;background:linear-gradient(180deg,#92f58d,#4cba58);border-radius:3px;opacity:.8}
+/* .top-actions{display:flex;align-items:center;gap:10px}.signal-bars{display:flex;gap:4px;padding:6px 8px;border:1px solid var(--line);border-radius:8px;background:#08161f}.signal-bars span{display:block;width:14px;height:8px;background:linear-gradient(180deg,#92f58d,#4cba58);border-radius:3px;opacity:.8} */
 .badge{display:inline-flex;align-items:center;gap:8px;background:rgba(84,173,109,.13);color:#9bf3a2;border:1px solid #2e7752;border-radius:999px;padding:8px 14px;font-size:27px;font-weight:700}.dot{width:8px;height:8px;background:#6ef08a;border-radius:50%}
 .layout{display:grid;grid-template-columns:290px 1fr;gap:10px;padding:8px}
 .panel,.card{padding:12px}.side-panel h3{font-size:12px;margin:8px 0;color:#b0c8d4}.panel label{display:block;font-size:11px;color:#9db8c8;margin-bottom:8px}.panel input{width:100%;padding:8px;border:1px solid #365769;background:#091822;color:#d6edf7;border-radius:8px;margin-top:4px}
