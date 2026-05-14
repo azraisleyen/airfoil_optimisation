@@ -3,8 +3,8 @@
 body{font-family:Inter,Segoe UI,Arial,sans-serif;margin:0;background:var(--bg);color:var(--text)}
 .topbar{display:flex;justify-content:space-between;align-items:center;padding:14px 20px;background:#fff;border-bottom:1px solid var(--line)}
 .topbar h1{margin:0;font-size:14px}.subtitle{margin:4px 0 0;color:var(--muted);font-size:14px}
-.badge{display:inline-flex;align-items:center;gap:8px;background:#e7f7ef;color:#149964;border-radius:999px;padding:8px 14px;font-size:30px;font-weight:700;line-height:1;white-space:nowrap}
-.dot{width:10px;height:10px;background:#15b36d;border-radius:999px;display:inline-block}
+.badge{display:inline-flex;align-items:center;gap:8px;background:#e7f7ef;color:#149964;border-radius:999px;padding:8px 14px;font-size:15px;font-weight:700;line-height:1;white-space:nowrap}
+.dot{width:7px;height:7px;background:#15b36d;border-radius:999px;display:inline-block}
 .layout{display:grid;grid-template-columns:340px 1fr;gap:16px;padding:16px}
 .panel,.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px}
 .side-panel h3{font-size:13px;letter-spacing:.08em;color:#7a92ab;margin:8px 0 10px}
