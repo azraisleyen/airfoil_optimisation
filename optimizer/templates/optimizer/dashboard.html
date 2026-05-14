@@ -1,0 +1,67 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Airfoil Secure Optimization Unit</title>
+  <link rel="stylesheet" href="{% static 'optimizer/css/style.css' %}">
+</head>
+<body>
+  <header class="topbar hud-panel">
+    <div>
+      <h1>AIRFOIL CONFIGURATION & SECURE OPTIMIZATION UNIT</h1>
+      <p class="subtitle">AERODYNAMIC PROFILE CONFIGURATION AND TRUSTED OPTIMIZATION CONSOLE</p>
+    </div>
+    <div class="top-actions">
+      <div class="signal-bars"><span></span><span></span><span></span><span></span></div>
+      <span class="badge"><span class="dot"></span> Model Ready</span>
+    </div>
+  </header>
+
+  <main class="layout">
+    <aside class="panel side-panel hud-panel">
+      <h3>AKIŞ ŞARTLARI</h3>
+      <label>Angle of Attack (°)<input id="aoa" type="number" value="2.5" step="0.1"></label>
+      <label>Reynolds Number<input id="reynolds" type="number" value="6000000"></label>
+
+      <h3>GEOMETRİ AĞIRLIKLARI</h3>
+      <label>Upper Surface Weights<input id="upper" value="0.18,0.22,0.15,0.10"></label>
+      <label>Lower Surface Weights<input id="lower" value="-0.08,-0.12,-0.09,-0.04"></label>
+      <div class="row-2">
+        <label>Leading Edge Wt.<input id="le" type="number" value="0.25" step="0.01"></label>
+        <label>Trailing Edge Off.<input id="te" type="number" value="0.002" step="0.001"></label>
+      </div>
+
+      <button id="optimizeBtn">⚡ Optimize Airfoil</button>
+      <div class="status-chip">◉ Pre-trained PPO model loaded</div>
+    </aside>
+
+    <section class="content">
+      <div class="card chart-card hud-panel">
+        <div class="chart-head">
+          <div>
+            <h2>AEROFİL PROFİL KARŞILAŞTIRMASI</h2>
+            <p>Initial vs. AI-optimized geometry overlay</p>
+          </div>
+          <div class="legend"><span class="ln initial"></span>Initial <span class="ln optimized"></span>Optimized</div>
+        </div>
+        <canvas id="airfoilCanvas" width="1200" height="360"></canvas>
+      </div>
+
+      <div class="metrics" id="metrics"></div>
+
+      <div class="two-col">
+        <div class="card hud-panel" id="constraints"></div>
+        <div class="card hud-panel" id="pipeline"></div>
+      </div>
+
+      <div class="two-col">
+        <div class="card hud-panel" id="experiment"></div>
+        <div class="card hud-panel" id="xai"></div>
+      </div>
+    </section>
+  </main>
+  <script src="{% static 'optimizer/js/app.js' %}"></script>
+</body>
+</html>
