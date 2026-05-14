@@ -7,6 +7,8 @@ from django.views.decorators.csrf import csrf_exempt
 
 from .services.solver_interface import OptimizationInput
 from .services.surrogate_solver import ResMLPSurrogateOptimizer
+from .services.experiment_orchestrator import LLMExperimentOrchestrator
+from .services.xai_analyzer import XAIPolicyAnalyzer
 
 
 class DashboardView(View):
@@ -26,5 +28,21 @@ def optimize_airfoil(request):
         leading_edge_weight=float(payload['leading_edge_weight']),
         trailing_edge_offset=float(payload['trailing_edge_offset']),
     )
-    result = ResMLPSurrogateOptimizer().optimize(data)
+
+    optimizer = ResMLPSurrogateOptimizer()
+    result = optimizer.optimize(data)
+
+    orchestrator = LLMExperimentOrchestrator()
+    context = orchestrator.create_context(payload)
+    experiment = orchestrator.summarize(context, result)
+
+    xai = XAIPolicyAnalyzer().analyze(payload, result)
+
+    result['experiment'] = experiment
+    result['xai'] = xai
+    result['pipeline'] += [
+        'LLM orchestration summary generated',
+        'XAI analysis completed',
+    ]
+
     return JsonResponse(result)
