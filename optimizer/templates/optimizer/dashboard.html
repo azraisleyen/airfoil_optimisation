@@ -8,22 +8,46 @@
   <link rel="stylesheet" href="{% static 'optimizer/css/style.css' %}">
 </head>
 <body>
-  <header class="topbar"><h1>Airfoil Optimization Platform</h1><span class="badge">Model Ready</span></header>
+  <header class="topbar">
+    <div>
+      <h1>Airfoil Optimization Demo</h1>
+      <p class="subtitle">PPO-based AI model for aerodynamic profile optimization</p>
+    </div>
+    <span class="badge"><span class="dot"></span> Model Ready</span>
+  </header>
+
   <main class="layout">
-    <aside class="panel">
-      <h3>Flow Conditions</h3>
+    <aside class="panel side-panel">
+      <h3>FLOW CONDITIONS</h3>
       <label>Angle of Attack (°)<input id="aoa" type="number" value="2.5" step="0.1"></label>
       <label>Reynolds Number<input id="reynolds" type="number" value="6000000"></label>
-      <h3>Geometry Weights</h3>
+
+      <h3>GEOMETRY WEIGHTS</h3>
       <label>Upper Surface Weights<input id="upper" value="0.18,0.22,0.15,0.10"></label>
       <label>Lower Surface Weights<input id="lower" value="-0.08,-0.12,-0.09,-0.04"></label>
-      <label>Leading Edge Weight<input id="le" type="number" value="0.25" step="0.01"></label>
-      <label>Trailing Edge Offset<input id="te" type="number" value="0.002" step="0.001"></label>
-      <button id="optimizeBtn">Optimize Airfoil</button>
+      <div class="row-2">
+        <label>Leading Edge Wt.<input id="le" type="number" value="0.25" step="0.01"></label>
+        <label>Trailing Edge Off.<input id="te" type="number" value="0.002" step="0.001"></label>
+      </div>
+
+      <button id="optimizeBtn">⚡ Optimize Airfoil</button>
+      <div class="status-chip">⚙️ Pre-trained PPO model loaded</div>
     </aside>
-    <section class="content">
-      <div class="card"><h2>Airfoil Profile Comparison</h2><canvas id="airfoilCanvas" width="900" height="300"></canvas></div>
+
+    <section class="content grid-bg">
+      <div class="card chart-card">
+        <div class="chart-head">
+          <div>
+            <h2>Airfoil Profile Comparison</h2>
+            <p>Initial vs. AI-optimized geometry overlay</p>
+          </div>
+          <div class="legend"><span class="ln initial"></span>Initial <span class="ln optimized"></span>Optimized</div>
+        </div>
+        <canvas id="airfoilCanvas" width="1100" height="360"></canvas>
+      </div>
+
       <div class="metrics" id="metrics"></div>
+
       <div class="two-col">
         <div class="card" id="constraints"></div>
         <div class="card" id="pipeline"></div>
