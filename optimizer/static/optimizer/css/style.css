@@ -1,0 +1,8 @@
+body{font-family:Inter,Arial,sans-serif;margin:0;background:#f2f6fb;color:#17324d}
+.topbar{display:flex;justify-content:space-between;padding:16px 24px;background:#fff;border-bottom:1px solid #d9e2ef}
+.layout{display:grid;grid-template-columns:300px 1fr;gap:16px;padding:16px}
+.panel,.card{background:#fff;border:1px solid #d9e2ef;border-radius:12px;padding:16px}
+.panel label{display:block;font-size:13px;margin-bottom:10px}.panel input{width:100%;padding:10px;margin-top:4px;border:1px solid #c8d4e3;border-radius:8px}
+button{width:100%;padding:12px;background:#12395d;color:#fff;border:none;border-radius:8px;font-weight:700}
+.metrics{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin:12px 0}.metric{background:#fff;border:1px solid #d9e2ef;border-radius:10px;padding:12px;text-align:center}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:12px}.badge{background:#dff8ea;color:#147a4b;padding:6px 12px;border-radius:999px}

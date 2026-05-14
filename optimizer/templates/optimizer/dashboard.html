@@ -1,0 +1,35 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Airfoil Optimization Platform</title>
+  <link rel="stylesheet" href="{% static 'optimizer/css/style.css' %}">
+</head>
+<body>
+  <header class="topbar"><h1>Airfoil Optimization Platform</h1><span class="badge">Model Ready</span></header>
+  <main class="layout">
+    <aside class="panel">
+      <h3>Flow Conditions</h3>
+      <label>Angle of Attack (°)<input id="aoa" type="number" value="2.5" step="0.1"></label>
+      <label>Reynolds Number<input id="reynolds" type="number" value="6000000"></label>
+      <h3>Geometry Weights</h3>
+      <label>Upper Surface Weights<input id="upper" value="0.18,0.22,0.15,0.10"></label>
+      <label>Lower Surface Weights<input id="lower" value="-0.08,-0.12,-0.09,-0.04"></label>
+      <label>Leading Edge Weight<input id="le" type="number" value="0.25" step="0.01"></label>
+      <label>Trailing Edge Offset<input id="te" type="number" value="0.002" step="0.001"></label>
+      <button id="optimizeBtn">Optimize Airfoil</button>
+    </aside>
+    <section class="content">
+      <div class="card"><h2>Airfoil Profile Comparison</h2><canvas id="airfoilCanvas" width="900" height="300"></canvas></div>
+      <div class="metrics" id="metrics"></div>
+      <div class="two-col">
+        <div class="card" id="constraints"></div>
+        <div class="card" id="pipeline"></div>
+      </div>
+    </section>
+  </main>
+  <script src="{% static 'optimizer/js/app.js' %}"></script>
+</body>
+</html>
