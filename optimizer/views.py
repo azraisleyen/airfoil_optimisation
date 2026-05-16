@@ -20,6 +20,9 @@ class DashboardView(View):
 @require_POST
 def optimize_airfoil(request):
     payload = json.loads(request.body)
+    model = str(payload.get('model', 'PPO')).upper()
+    if model not in {'PPO', 'TD3', 'SAC'}:
+        return JsonResponse({'status': 'error', 'message': 'Unsupported model'}, status=400)
     data = OptimizationInput(
         aoa=float(payload['aoa']),
         reynolds=float(payload['reynolds']),
@@ -27,6 +30,7 @@ def optimize_airfoil(request):
         lower_weights=[float(v) for v in payload['lower_weights']],
         leading_edge_weight=float(payload['leading_edge_weight']),
         trailing_edge_offset=float(payload['trailing_edge_offset']),
+        model=model,
     )
 
     optimizer = ResMLPSurrogateOptimizer()

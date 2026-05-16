@@ -10,6 +10,7 @@ class OptimizationInput:
     lower_weights: list[float]
     leading_edge_weight: float
     trailing_edge_offset: float
+    model: str = "PPO"
 
 
 class AerodynamicOptimizer(ABC):
